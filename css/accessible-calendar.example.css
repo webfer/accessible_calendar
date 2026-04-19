@@ -1,0 +1,36 @@
+/**
+ * Custom calendar skin.
+ *
+ * Add this to a library in your module or theme.
+ *
+ * @code
+ * mycalendarskin:
+ *   version: VERSION
+ *   css:
+ *    component:
+ *      # Weight not necessary but it makes sure this
+ *      # stylesheet is loaded after defaults.
+ *      css/accessible-calendar.gin.css: { weight: 1 }
+ * @endcode
+ *
+ * Create your own template views-view-calendar.html.twig
+ * and attach your library.
+ *
+ * @code
+ * {% extends "views-view-calendar.html.twig" %}
+ * {% block libraries %}
+ *   {{ attach_library ('mytheme/mycalendarskin') }}
+ * {% endblock %}
+ * @endcode
+ */
+.accessible-calendar-table {
+  --accessible-calendar-columns: 7;
+  --accessible-calendar-color-white: #fff;
+  --accessible-calendar-color-lighter: #f8f8f8;
+  --accessible-calendar-color-light: #f4f4f4;
+  --accessible-calendar-color-grey: #ccc;
+  --accessible-calendar-color-gray: #555;
+  --accessible-calendar-color-evil: #666;
+  --accessible-calendar-color-dark: #333;
+  --accessible-calendar-day-rows-gap: 0.5rem;
+}

@@ -1,0 +1,64 @@
+.accessible-calendar-table {
+  width: 100%;
+}
+
+.accessible-calendar-table caption {
+  line-height: 4;
+  font-weight: bold;
+}
+
+.accessible-calendar-table th,
+.accessible-calendar-table td {
+  width: calc(100% / 7);
+  vertical-align: baseline;
+}
+
+.accessible-calendar-table td {
+  padding: 0;
+  min-height: 99px;
+}
+
+.accessible-calendar-day {
+  padding: 0.5rem;
+}
+
+.accessible-calendar-day__rows {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+}
+
+.accessible-calendar-day__row {
+  margin: 0 auto;
+  padding: 5px;
+  background-color: white;
+}
+
+.accessible-calendar-day__row + .accessible-calendar-day__row {
+  margin-top: 5px;
+}
+
+[data-accessible-calendar-day]:hover .accessible-calendar-day__number,
+[data-accessible-calendar-day]:active .accessible-calendar-day__number,
+[data-accessible-calendar-day]:focus .accessible-calendar-day__number {
+  font-weight: bold;
+}
+
+.accessible-calendar-day__number {
+  margin-bottom: 5px;
+}
+
+.accessible-calendar-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accessible-calendar-pager__reset {
+  text-align: center;
+}
+
+.view > .accessible-calendar-pager__reset {
+  margin-block-end: 0;
+}

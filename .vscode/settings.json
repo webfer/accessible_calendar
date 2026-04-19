@@ -1,0 +1,17 @@
+{
+  "files.exclude": {
+    "**/node_modules": false,
+    "**/dist": false
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "files.associations": {
+    "*.inc": "php"
+  },
+  "[php]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {}
+  }
+}

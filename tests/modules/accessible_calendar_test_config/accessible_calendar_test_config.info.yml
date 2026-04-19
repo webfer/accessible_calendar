@@ -1,0 +1,8 @@
+name: "Accessible Calendar Test Config"
+description: "Provides test configuration for the Accessible Calendar module."
+type: module
+package: Testing
+core_version_requirement: ^10 || ^11
+version: VERSION
+dependencies:
+  - accessible_calendar:accessible_calendar

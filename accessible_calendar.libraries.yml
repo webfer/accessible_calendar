@@ -1,0 +1,12 @@
+calendar:
+  version: VERSION
+  js:
+    js/accessible-calendar.a11y.js: {}
+  css:
+    component:
+      css/accessible-calendar.css: {}
+      css/accessible-calendar.default.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupal.announce

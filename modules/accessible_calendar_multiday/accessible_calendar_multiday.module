@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks and preprocess for the accessible_calendar_multiday module.
+ */
+
+/**
+ * Implements template_preprocess_views_view_calendar().
+ */
+function accessible_calendar_multiday_preprocess_views_view_calendar(array &$variables) {
+  $variables['#attached']['library'][] = 'accessible_calendar_multiday/multiday';
+}
+
+/**
+ * Implements template_preprocess_accessible_calendar_day().
+ */
+function accessible_calendar_multiday_preprocess_accessible_calendar_day(array &$variables) {
+  $rows = $variables['rows'] ?? [];
+  foreach ($rows as &$row) {
+    $values = $row['#values'] ?? [];
+
+    // Helpful information for multiday events (e.g. multiday.js)
+    $row_instance = $values['instance'] ?? 0;
+    $row_instance_total = $values['instances'] ?? 0;
+    $row['attributes']->setAttribute('data-accessible-calendar-instance', $row_instance);
+    $row['attributes']->setAttribute('data-accessible-calendar-instances', $row_instance_total);
+
+    $row_instance_classes = [];
+    if ($row_instance_total > 0) {
+      $row_instance_classes[] = 'is-multi';
+      if ($row_instance == 0) {
+        $row_instance_classes[] = 'is-multi--first';
+      }
+      elseif ($row_instance == $row_instance_total) {
+        $row_instance_classes[] = 'is-multi--last';
+      }
+      else {
+        $row_instance_classes[] = 'is-multi--middle';
+      }
+      $row['attributes']->addClass($row_instance_classes);
+    }
+  }
+
+  unset($row);
+  $variables['rows'] = $rows;
+}

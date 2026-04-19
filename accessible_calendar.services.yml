@@ -1,0 +1,7 @@
+services:
+  accessible_calendar.timestamp:
+    class: Drupal\accessible_calendar\TimestampHelper
+
+  logger.channel.accessible_calendar:
+    parent: logger.channel_base
+    arguments: ["accessible_calendar"]

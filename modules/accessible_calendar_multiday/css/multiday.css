@@ -1,0 +1,46 @@
+/**
+ * Multiple days event styling.
+ */
+
+/** Desktop (e.g. 48rem = 768px) **/
+@media (min-width: 48rem) {
+  /** Multi-day events **/
+  .accessible-calendar-day__row.is-multi {
+    --accessible-calendar-day-multi-offset: calc(-1rem - 1px);
+    padding-left: calc(var(--accessible-calendar-day-multi-offset) * -1);
+    border-color: var(--accessible-calendar-color-accent);
+  }
+
+  .accessible-calendar-day__row.is-multi:not(.is-multi--first) > * {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .accessible-calendar-day__row.is-multi::before {
+    display: none;
+  }
+
+  .accessible-calendar-day__row.is-multi--first::before {
+    display: block;
+  }
+
+  .accessible-calendar-day__row.is-multi--first {
+    margin-right: var(--accessible-calendar-day-multi-offset);
+    border-right: none;
+    box-shadow: none;
+  }
+
+  .accessible-calendar-day__row.is-multi--middle {
+    margin-right: var(--accessible-calendar-day-multi-offset);
+    margin-left: var(--accessible-calendar-day-multi-offset);
+    border-right: none;
+    border-left: none;
+    box-shadow: none;
+  }
+
+  .accessible-calendar-day__row.is-multi--last {
+    margin-left: var(--accessible-calendar-day-multi-offset);
+    border-left: none;
+    box-shadow: none;
+  }
+}

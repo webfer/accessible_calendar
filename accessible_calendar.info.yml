@@ -1,0 +1,6 @@
+name: Accessible Calendar
+description: Provides accessible month and week calendar displays for Views results.
+type: module
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:views

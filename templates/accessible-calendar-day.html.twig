@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a cell of an Accessible Calendar table.
+ *
+ * Available variables:
+ * - elements: Original variables passed to this template.
+ * - attributes: HTML attributes for the wrapper.
+ * - timestamp: The datetime value.
+ * - empty: Wether or not this day as content.
+ * - content: Custom content.
+ * - rows: A list of view rows including the following:
+ *   - content: The content as a render array.
+ *   - attributes: The date field name used to get this content.
+ *
+ * @see template_preprocess_accessible_calendar_day()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'accessible-calendar-day',
+    empty ? 'empty',
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% set html_date = timestamp|format_date('html_date') %}
+  {% set count = (not rows ? 0 : rows|length)|number_format %}
+  {% set day_summary %}
+    {% trans %}
+      {{ day_label }}, {{ count }} result
+    {% plural count %}
+      {{ day_label }}, {{ count }} results
+    {% endtrans %}
+  {% endset %}
+
+  <span class="accessible-calendar-day__label visually-hidden">{{ day_summary|trim }}</span>
+
+	{# The day #}
+	{% block day_number %}
+    <time class="accessible-calendar-day__number" datetime="{{ timestamp|date('Y-m-d\TH:i:s') }}">
+      {{ timestamp|date('j') }}
+    </time>
+	{% endblock %}
+
+  {% block day_content %}
+    {% if count < 1 %}
+      {# Empty #}
+      <div class="accessible-calendar-day__rows empty"></div>
+    {% else %}
+      {# Events #}
+      <ul class="accessible-calendar-day__rows">
+        {% for row in rows %}
+          {% set row_classes = [default_row_class ? 'views-row'] %}
+          <li{{ row.attributes.addClass(row_classes,'accessible-calendar-day__row') }}>
+            {% if row.accessible_title %}
+              <span class="accessible-calendar-day__row-label visually-hidden">{{ row.accessible_title }}</span>
+            {% endif %}
+            {{- row.content -}}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endblock %}
+</div>

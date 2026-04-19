@@ -1,0 +1,7 @@
+name: Accessible Calendar - Multiday
+description: Improve rendering of events spanning multiple days.
+type: module
+package: Accessible Calendar
+core_version_requirement: ^10 || ^11
+dependencies:
+  - accessible_calendar:accessible_calendar

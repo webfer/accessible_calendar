@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains accessible_calendar.module.
+ */
+
+// Load all hooks related to templates.
+require_once __DIR__ . '/accessible_calendar.theme.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function accessible_calendar_theme() {
+  return [
+    // Provide a default template for Views using Accessible Calendar style.
+    'views_view__style__accessible_calendar' => [
+      'base hook' => 'views_view',
+    ],
+    // Provide a dedicated pager theme hook for Accessible Calendar Views.
+    'accessible_calendar_pager' => [
+      'template' => 'accessible-calendar-pager',
+      'variables' => [
+        'attributes' => NULL,
+        'parameters' => [],
+        'view' => NULL,
+      ],
+    ],
+    // Allow other modules/themes to alter Accessible Calendar table cells.
+    'accessible_calendar_day' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Helper method to make sure a timestamp is a timestamp.
+ *
+ * @param mixed $value
+ *   A given value.
+ *
+ * @return int
+ *   The timestamp or the original value.
+ */
+function _accessible_calendar_ensure_timestamp_value($value): int {
+  return \Drupal::service('accessible_calendar.timestamp')->normalizeTimestampValue($value);
+}

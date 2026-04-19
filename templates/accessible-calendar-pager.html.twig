@@ -1,0 +1,38 @@
+{#
+/**
+ * The template to display the Calendar Pager plugin.
+ *
+ * Important: `js-pager__items` class is required for Ajax.
+ *
+ * @see template_preprocess_accessible_calendar_pager()
+ */
+#}
+{%
+  set classes = [
+    'pager__items',
+    'js-pager__items',
+    'accessible-calendar-pager',
+  ]
+%}
+
+{% if items|length %}
+  <nav class="accessible-calendar-pager-nav" aria-label="{{ navigation_label }}" data-accessible-calendar-current-period="{{ current_period_announcement }}">
+    <ul {{ attributes.addClass(classes) }}>
+      {% for key,item in items|without('reset') %}
+        <li class="pager__item {{ 'pager__' ~ key|clean_class }}">
+          {% if key == 'current' %}
+            <span class="accessible-calendar-pager__current" aria-current="date" aria-label="{{ current_period_announcement }}">{{ current_period_label }}</span>
+          {% else %}
+            {{- item -}}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% if items.reset %}
+    <div class="accessible-calendar-pager__reset">
+      {{- items.reset -}}
+    </div>
+  {% endif %}
+{% endif %}

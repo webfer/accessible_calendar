@@ -1,0 +1,22 @@
+{
+  "name": "drupal/accessible_calendar",
+  "description": "Provides accessible month and week calendar displays for Views results.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://www.drupal.org/project/accessible_calendar",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/accessible_calendar",
+    "source": "https://github.com/webfer/accessible_calendar"
+  },
+  "require": {
+    "drupal/core": "^10 || ^11"
+  },
+  "keywords": [
+    "drupal",
+    "calendar",
+    "accessible",
+    "events",
+    "views",
+    "a11y"
+  ]
+}
