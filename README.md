@@ -102,6 +102,10 @@ For large datasets, and especially for recurring date data, configure Views filt
 - [Calendar](https://www.drupal.org/project/calendar) for a deeper calendar integration.
 - [FullCalendar View](https://www.drupal.org/project/fullcalendar_view) for a JavaScript-driven calendar display.
 
+## Acknowledgement
+
+Accessible Calendar builds on the lightweight Views-based approach established by Drupal's [Calendar View](https://www.drupal.org/project/calendar_view) project, with an explicit focus on stronger accessibility, including improved pager semantics, announcements, focus handling, and day summaries. Credit goes to the Calendar View maintainers and contributors, especially Matthieu Scarset, for the original groundwork.
+
 ## Sponsorship
 
 Development of this module is sponsored by [Tothomweb](https://tothomweb.com/).
